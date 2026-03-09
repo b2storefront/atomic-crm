@@ -21,7 +21,7 @@ import { defaultConfiguration } from "../root/defaultConfiguration";
 
 const SECTIONS = [
   { id: "branding", label: "Branding" },
-  { id: "companies", label: "Companies" },
+  { id: "companies", label: "Prospective Tenant" },
   { id: "deals", label: "Deals" },
   { id: "notes", label: "Notes" },
   { id: "tasks", label: "Tasks" },
@@ -223,11 +223,11 @@ const SettingsFormFields = () => {
           </CardContent>
         </Card>
 
-        {/* Companies */}
+        {/* Prospective Tenant */}
         <Card id="companies">
           <CardContent className="space-y-4">
             <h2 className="text-xl font-semibold text-muted-foreground">
-              Companies
+              Prospective Tenant
             </h2>
             <h3 className="text-lg font-medium text-muted-foreground">
               Sectors

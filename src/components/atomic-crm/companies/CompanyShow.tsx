@@ -60,7 +60,7 @@ const CompanyShowContentMobile = () => {
         <MobileBackButton to="/" />
         <div className="flex flex-1">
           <Link to="/">
-            <h1 className="text-xl font-semibold">Company</h1>
+            <h1 className="text-xl font-semibold">Prospective Tenant</h1>
           </Link>
         </div>
       </MobileHeader>
@@ -117,9 +117,9 @@ const CompanyShowContent = () => {
                 <TabsTrigger value="contacts">
                   {record.nb_contacts
                     ? record.nb_contacts === 1
-                      ? "1 Contact"
-                      : `${record.nb_contacts} Contacts`
-                    : "No Contacts"}
+                      ? "1 Unit Proposed"
+                      : `${record.nb_contacts} Units Proposed`
+                    : "No Units Proposed"}
                 </TabsTrigger>
                 {record.nb_deals ? (
                   <TabsTrigger value="deals">

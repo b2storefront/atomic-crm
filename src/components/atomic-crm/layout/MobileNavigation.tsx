@@ -76,7 +76,7 @@ export const MobileNavigation = () => {
           <NavigationButton
             href="/contacts"
             Icon={Users}
-            label="Contacts"
+            label="Units Proposed"
             isActive={currentPath === "/contacts"}
           />
           <CreateButton />
@@ -159,7 +159,7 @@ const CreateButton = () => {
               setContactCreateOpen(true);
             }}
           >
-            Contact
+            Unit Proposed
           </DropdownMenuItem>
           <DropdownMenuItem
             className="h-12 px-4 text-base"

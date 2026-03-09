@@ -62,7 +62,8 @@ const ImportFromJsonIdle = ({
   <>
     <div className="mb-4">
       <p className="text-sm">
-        You can import sales, companies, contacts, companies, notes, and tasks.
+        You can import sales, prospective tenants, units proposed, notes, and
+        tasks.
       </p>
       <p className="text-sm">
         Data must be in a JSON file matching the following sample:{" "}
@@ -192,6 +193,14 @@ const DownloadErrorFileButton = ({
   );
 };
 
+const ENTITY_LABELS: Record<string, string> = {
+  sales: "Sales",
+  companies: "Prospective Tenant",
+  contacts: "Units Proposed",
+  notes: "Notes",
+  tasks: "Tasks",
+};
+
 const ImportStats = ({
   importState: { stats, failedImports },
 }: {
@@ -237,7 +246,9 @@ const ImportStats = ({
       <TableBody>
         {data.map((record) => (
           <TableRow key={record.entity}>
-            <TableCell className="font-medium">{record.entity}</TableCell>
+            <TableCell className="font-medium">
+              {ENTITY_LABELS[record.entity] ?? record.entity}
+            </TableCell>
             <TableCell className="text-right text-success">
               {record.imported}
             </TableCell>

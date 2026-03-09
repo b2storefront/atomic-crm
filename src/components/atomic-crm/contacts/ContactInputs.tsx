@@ -56,8 +56,18 @@ const ContactIdentityInputs = () => {
         optionValue="value"
         defaultValue={contactGender[0].value}
       />
-      <TextInput source="first_name" validate={required()} helperText={false} />
-      <TextInput source="last_name" validate={required()} helperText={false} />
+      <TextInput
+        source="first_name"
+        label="Property / Building"
+        validate={required()}
+        helperText={false}
+      />
+      <TextInput
+        source="last_name"
+        label="Unit Number"
+        validate={required()}
+        helperText={false}
+      />
     </div>
   );
 };

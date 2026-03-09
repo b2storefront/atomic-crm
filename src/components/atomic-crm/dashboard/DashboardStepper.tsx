@@ -73,11 +73,11 @@ export const DashboardStepper = ({
                         variant="outline"
                       >
                         <Plus className="h-4 w-4" />
-                        New Contact
+                        New Unit Proposed
                       </Button>
                     ) : (
                       <>
-                        <CreateButton label="New Contact" resource="contacts" />
+                        <CreateButton label="New Unit Proposed" resource="contacts" />
                         <ContactImportButton />
                       </>
                     )}
@@ -88,7 +88,7 @@ export const DashboardStepper = ({
                 <Circle className="text-muted-foreground w-5 h-5 mt-1 shrink-0" />
                 <div className="flex flex-col gap-4">
                   <h4 className="font-bold">Add your first note</h4>
-                  <p>Go to a contact page and add a note</p>
+                  <p>Go to a unit proposed page and add a note</p>
                   {isMobile ? (
                     <Button
                       onClick={() => setNoteCreateOpen(true)}

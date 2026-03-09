@@ -9,6 +9,19 @@ const raSupabaseEnglishMessagesOverride = {
       password_reset: "Check your emails for a Reset Password message.",
     },
   },
+  resources: {
+    contacts: {
+      name: "Unit Proposed",
+      fields: {
+        first_name: "Property / Building",
+        last_name: "Unit Number",
+      },
+    },
+    companies: {
+      name: "Prospective Tenant",
+      fields: {},
+    },
+  },
 };
 
 export const i18nProvider = polyglotI18nProvider(

@@ -19,7 +19,7 @@ export const CompanyEmpty = () => {
         </p>
       </div>
       <div className="flex space-x-2">
-        <CreateButton label="Create Company" />
+        <CreateButton label="Create Prospective Tenant" />
       </div>
     </div>
   );

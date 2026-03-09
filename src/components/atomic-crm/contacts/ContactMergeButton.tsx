@@ -133,7 +133,7 @@ const ContactMergeDialog = ({ open, onClose }: ContactMergeDialogProps) => {
       setIsMerging(true);
       await mutateAsync();
       setIsMerging(false);
-      notify("Contacts merged successfully", { type: "success" });
+      notify("Units Proposed merged successfully", { type: "success" });
       redirect(`/contacts/${winnerId}/show`);
       onClose();
     } catch (error) {
@@ -149,7 +149,7 @@ const ContactMergeDialog = ({ open, onClose }: ContactMergeDialogProps) => {
     <Dialog open={open} onOpenChange={onClose}>
       <DialogContent className="md:min-w-lg max-w-2xl">
         <DialogHeader>
-          <DialogTitle>Merge Contact</DialogTitle>
+          <DialogTitle>Merge Unit Proposed</DialogTitle>
           <DialogDescription>
             Merge this contact with another one.
           </DialogDescription>
@@ -158,7 +158,7 @@ const ContactMergeDialog = ({ open, onClose }: ContactMergeDialogProps) => {
         <div className="space-y-4">
           <div className="p-4 bg-primary/5 rounded-lg border border-primary/20">
             <p className="font-medium text-sm">
-              Current Contact (will be deleted)
+              Current Unit Proposed (will be deleted)
             </p>
             <div className="font-medium text-sm mt-4">{contactOptionText}</div>
 
@@ -167,7 +167,7 @@ const ContactMergeDialog = ({ open, onClose }: ContactMergeDialogProps) => {
             </div>
 
             <p className="font-medium text-sm mb-2">
-              Target Contact (will be kept)
+              Target Unit Proposed (will be kept)
             </p>
             <Form>
               <ReferenceInput
@@ -254,7 +254,7 @@ const ContactMergeDialog = ({ open, onClose }: ContactMergeDialogProps) => {
           </Button>
           <Button onClick={handleMerge} disabled={!winnerId || isMerging}>
             <Merge />
-            {isMerging ? "Merging..." : "Merge Contacts"}
+            {isMerging ? "Merging..." : "Merge Units Proposed"}
           </Button>
         </DialogFooter>
       </DialogContent>

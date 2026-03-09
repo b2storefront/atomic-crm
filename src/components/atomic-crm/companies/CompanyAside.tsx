@@ -27,9 +27,9 @@ export const CompanyAside = ({ link = "edit" }: CompanyAsideProps) => {
     <div className="hidden sm:block w-92 min-w-92 space-y-4">
       <div className="flex flex-row space-x-1">
         {link === "edit" ? (
-          <EditButton label="Edit Company" />
+          <EditButton label="Edit Prospective Tenant" />
         ) : (
-          <ShowButton label="Show Company" />
+          <ShowButton label="Show Prospective Tenant" />
         )}
       </div>
 
@@ -59,7 +59,7 @@ export const CompanyInfo = ({ record }: { record: Company }) => {
   }
 
   return (
-    <AsideSection title="Company Info">
+    <AsideSection title="Prospective Tenant Info">
       {record.website && (
         <div className="flex flex-row items-center gap-1 min-h-[24px]">
           <Globe className="w-4 h-4" />

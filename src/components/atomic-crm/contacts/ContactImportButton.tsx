@@ -148,8 +148,8 @@ export function ContactImportDialog({
             {importer.state === "complete" && (
               <Alert>
                 <AlertDescription>
-                  Contacts import complete. Imported {importer.importCount}{" "}
-                  contacts, with {importer.errorCount} errors
+                  Units Proposed import complete. Imported {importer.importCount}{" "}
+                  units proposed, with {importer.errorCount} errors
                 </AlertDescription>
               </Alert>
             )}

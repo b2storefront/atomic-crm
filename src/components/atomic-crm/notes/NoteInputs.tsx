@@ -48,7 +48,7 @@ export const NoteInputs = ({
           reference={reference}
         >
           <AutocompleteInput
-            label={reference === "contacts" ? "Contact" : "Deal"}
+            label={reference === "contacts" ? "Unit Proposed" : "Deal"}
             optionText={
               reference === "contacts" ? contactOptionText : undefined
             }

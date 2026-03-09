@@ -83,7 +83,7 @@ export const DealCreate = ({ open }: { open: boolean }) => {
               index: 0,
             }}
           >
-            <DealInputs />
+            <DealInputs hideCategory />
             <FormToolbar>
               <SaveButton />
             </FormToolbar>

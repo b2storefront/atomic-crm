@@ -142,7 +142,7 @@ const DealShowContent = () => {
             <div className="m-4">
               <div className="flex flex-col min-h-12 mr-10">
                 <span className="text-xs text-muted-foreground tracking-wide">
-                  Contacts
+                  Units Proposed
                 </span>
                 <ReferenceArrayField
                   source="contact_ids"

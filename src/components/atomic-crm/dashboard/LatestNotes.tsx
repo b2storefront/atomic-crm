@@ -105,7 +105,7 @@ const Deal = ({ note }: any) => (
 
 const Contact = ({ note }: any) => (
   <>
-    Contact{" "}
+    Unit Proposed{" "}
     <ReferenceField<ContactNote, Contact>
       record={note}
       source="contact_id"

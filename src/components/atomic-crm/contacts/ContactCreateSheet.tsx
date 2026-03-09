@@ -16,7 +16,7 @@ export const ContactCreateSheet = ({
   return (
     <CreateSheet
       resource="contacts"
-      title="Create Contact"
+      title="Create Unit Proposed"
       defaultValues={{ sales_id: identity?.id }}
       transform={(data: Contact) => ({
         ...data,
