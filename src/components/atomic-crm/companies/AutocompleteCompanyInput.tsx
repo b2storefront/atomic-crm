@@ -34,10 +34,11 @@ export const AutocompleteCompanyInput = ({
 
   return (
     <AutocompleteInput
+      label="Prospective Tenant"
       optionText="name"
       helperText={false}
       onCreate={handleCreateCompany}
-      createItemLabel="Create %{item}"
+      createItemLabel="Create Prospective Tenant"
       createLabel="Start typing to create a new prospective tenant"
       validate={validate}
       modal={isMobile}
