@@ -71,7 +71,7 @@ const CompanyDisplayInputs = () => {
 const CompanyContactInputs = () => {
   return (
     <div className="flex flex-col gap-4">
-      <h6 className="text-lg font-semibold">Unit Proposed</h6>
+      <h6 className="text-lg font-semibold">Contact</h6>
       <TextInput source="website" helperText={false} validate={isUrl} />
       <TextInput
         source="linkedin_url"

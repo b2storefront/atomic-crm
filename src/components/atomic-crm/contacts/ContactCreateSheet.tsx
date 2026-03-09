@@ -17,7 +17,11 @@ export const ContactCreateSheet = ({
     <CreateSheet
       resource="contacts"
       title="Create Unit Proposed"
-      defaultValues={{ sales_id: identity?.id }}
+      defaultValues={{
+        sales_id: identity?.id,
+        first_name: "",
+        last_name: "",
+      }}
       transform={(data: Contact) => ({
         ...data,
         first_seen: new Date().toISOString(),
@@ -27,7 +31,7 @@ export const ContactCreateSheet = ({
       open={open}
       onOpenChange={onOpenChange}
     >
-      <ContactInputs />
+      <ContactInputs simplified />
     </CreateSheet>
   );
 };

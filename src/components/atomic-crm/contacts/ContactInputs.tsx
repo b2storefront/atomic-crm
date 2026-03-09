@@ -17,7 +17,9 @@ import type { Sale } from "../types";
 import { Avatar } from "./Avatar";
 import { AutocompleteCompanyInput } from "../companies/AutocompleteCompanyInput.tsx";
 
-export const ContactInputs = () => {
+export const ContactInputs = ({
+  simplified = false,
+}: { simplified?: boolean } = {}) => {
   const isMobile = useIsMobile();
 
   return (
@@ -27,15 +29,15 @@ export const ContactInputs = () => {
       </div>
       <div className="flex gap-10 md:gap-6 flex-col md:flex-row">
         <div className="flex flex-col gap-10 flex-1">
-          <ContactIdentityInputs />
-          <ContactPositionInputs />
+          {!simplified && <ContactIdentityInputs />}
+          <ContactPositionInputs hideTitle={simplified} />
         </div>
         {isMobile ? null : (
           <Separator orientation="vertical" className="flex-shrink-0" />
         )}
         <div className="flex flex-col gap-10 flex-1">
-          <ContactPersonalInformationInputs />
-          <ContactMiscInputs />
+          {!simplified && <ContactPersonalInformationInputs />}
+          <ContactMiscInputs accountManagerOnly={simplified} />
         </div>
       </div>
     </div>
@@ -72,12 +74,19 @@ const ContactIdentityInputs = () => {
   );
 };
 
-const ContactPositionInputs = () => {
+const ContactPositionInputs = ({
+  hideTitle = false,
+}: { hideTitle?: boolean } = {}) => {
   return (
     <div className="flex flex-col gap-4">
       <h6 className="text-lg font-semibold">Position</h6>
-      <TextInput source="title" helperText={false} />
-      <ReferenceInput source="company_id" reference="companies" perPage={10}>
+      {!hideTitle && <TextInput source="title" helperText={false} />}
+      <ReferenceInput
+        source="company_id"
+        reference="companies"
+        perPage={10}
+        label="Prospective Tenant"
+      >
         <AutocompleteCompanyInput />
       </ReferenceInput>
     </div>
@@ -185,17 +194,27 @@ const ContactPersonalInformationInputs = () => {
 
 const personalInfoTypes = [{ id: "Work" }, { id: "Home" }, { id: "Other" }];
 
-const ContactMiscInputs = () => {
+const ContactMiscInputs = ({
+  accountManagerOnly = false,
+}: { accountManagerOnly?: boolean } = {}) => {
   return (
     <div className="flex flex-col gap-4">
-      <h6 className="text-lg font-semibold">Misc</h6>
-      <TextInput
-        source="background"
-        label="Background info (bio, how you met, etc)"
-        multiline
-        helperText={false}
-      />
-      <BooleanInput source="has_newsletter" helperText={false} />
+      {accountManagerOnly ? (
+        <h6 className="text-lg font-semibold">Account manager</h6>
+      ) : (
+        <h6 className="text-lg font-semibold">Misc</h6>
+      )}
+      {!accountManagerOnly && (
+        <>
+          <TextInput
+            source="background"
+            label="Background info (bio, how you met, etc)"
+            multiline
+            helperText={false}
+          />
+          <BooleanInput source="has_newsletter" helperText={false} />
+        </>
+      )}
       <ReferenceInput
         reference="sales"
         source="sales_id"
