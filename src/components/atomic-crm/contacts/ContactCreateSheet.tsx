@@ -17,11 +17,7 @@ export const ContactCreateSheet = ({
     <CreateSheet
       resource="contacts"
       title="Create Unit Proposed"
-      defaultValues={{
-        sales_id: identity?.id,
-        first_name: "",
-        last_name: "",
-      }}
+      defaultValues={{ sales_id: identity?.id }}
       transform={(data: Contact) => ({
         ...data,
         first_seen: new Date().toISOString(),

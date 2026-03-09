@@ -29,7 +29,7 @@ export const ContactInputs = ({
       </div>
       <div className="flex gap-10 md:gap-6 flex-col md:flex-row">
         <div className="flex flex-col gap-10 flex-1">
-          {!simplified && <ContactIdentityInputs />}
+          <ContactIdentityInputs hideGender={simplified} />
           <ContactPositionInputs hideTitle={simplified} />
         </div>
         {isMobile ? null : (
@@ -44,20 +44,24 @@ export const ContactInputs = ({
   );
 };
 
-const ContactIdentityInputs = () => {
+const ContactIdentityInputs = ({
+  hideGender = false,
+}: { hideGender?: boolean } = {}) => {
   return (
     <div className="flex flex-col gap-4">
       <h6 className="text-lg font-semibold">Identity</h6>
-      <RadioButtonGroupInput
-        label={false}
-        row
-        source="gender"
-        choices={contactGender}
-        helperText={false}
-        optionText="label"
-        optionValue="value"
-        defaultValue={contactGender[0].value}
-      />
+      {!hideGender && (
+        <RadioButtonGroupInput
+          label={false}
+          row
+          source="gender"
+          choices={contactGender}
+          helperText={false}
+          optionText="label"
+          optionValue="value"
+          defaultValue={contactGender[0].value}
+        />
+      )}
       <TextInput
         source="first_name"
         label="Property / Building"
