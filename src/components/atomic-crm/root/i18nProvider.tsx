@@ -21,6 +21,11 @@ const raSupabaseEnglishMessagesOverride = {
       name: "Prospective Tenant",
       fields: {},
     },
+    deals: {
+      fields: {
+        company_id: "Prospective Tenant",
+      },
+    },
   },
 };
 
