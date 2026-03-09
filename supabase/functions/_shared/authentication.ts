@@ -62,11 +62,20 @@ export const UserMiddleware = async (
 
   try {
     const authHeader = req.headers.get("Authorization")!;
+    const supabaseKey =
+      Deno.env.get("SB_PUBLISHABLE_KEY") ??
+      Deno.env.get("SUPABASE_ANON_KEY") ??
+      req.headers.get("apikey") ??
+      "";
+    if (!supabaseKey) {
+      return createErrorResponse(
+        401,
+        "Missing API key: set SB_PUBLISHABLE_KEY or SUPABASE_ANON_KEY secret, or ensure the client sends the apikey header",
+      );
+    }
     const localClient = createClient(
       Deno.env.get("SUPABASE_URL") ?? "",
-      Deno.env.get("SB_PUBLISHABLE_KEY") ??
-        Deno.env.get("SUPABASE_ANON_KEY") ??
-        "",
+      supabaseKey,
       { global: { headers: { Authorization: authHeader } } },
     );
 
