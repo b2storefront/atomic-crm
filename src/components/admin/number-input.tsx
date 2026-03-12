@@ -36,7 +36,7 @@ export const NumberInput = (props: NumberInputProps) => {
     className,
     resource: resourceProp,
     validate: _validateProp,
-    format: _formatProp,
+    format,
     parse = convertStringToNumber,
     onFocus,
     helperText,
@@ -54,8 +54,11 @@ export const NumberInput = (props: NumberInputProps) => {
     field.onChange(numberValue ?? 0);
   };
 
+  const toDisplayValue = (v: unknown) =>
+    format ? String(format(v) ?? "") : (v != null ? String(v) : "");
+
   const [value, setValue] = useState<string | undefined>(
-    field.value?.toString() ?? "",
+    toDisplayValue(field.value),
   );
 
   const hasFocus = React.useRef(false);
@@ -68,12 +71,12 @@ export const NumberInput = (props: NumberInputProps) => {
   const handleBlur = (event: React.FocusEvent<HTMLInputElement>) => {
     field.onBlur?.(event);
     hasFocus.current = false;
-    setValue(field.value?.toString() ?? "");
+    setValue(toDisplayValue(field.value));
   };
 
   useEffect(() => {
     if (!hasFocus.current) {
-      setValue(field.value?.toString() ?? "");
+      setValue(toDisplayValue(field.value));
     }
   }, [field.value]);
 

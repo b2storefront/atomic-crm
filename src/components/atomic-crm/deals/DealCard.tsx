@@ -76,6 +76,7 @@ export const DealCardContent = ({
             <p className="text-xs text-muted-foreground">
               <NumberField
                 source="amount"
+                locales="en-US"
                 options={{
                   notation: "compact",
                   style: "currency",

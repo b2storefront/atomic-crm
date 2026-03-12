@@ -86,6 +86,15 @@ const DealMiscInputs = ({ hideCategory = false }: { hideCategory?: boolean }) =>
         defaultValue={0}
         step={0.01}
         min={0}
+        format={(v: number | string | null | undefined) =>
+          v != null && v !== ""
+            ? Number(v).toLocaleString("en-US", {
+                useGrouping: false,
+                minimumFractionDigits: 0,
+                maximumFractionDigits: 10,
+              })
+            : ""
+        }
         helperText={false}
         validate={required()}
       />
