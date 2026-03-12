@@ -84,6 +84,8 @@ const DealMiscInputs = ({ hideCategory = false }: { hideCategory?: boolean }) =>
       <NumberInput
         source="amount"
         defaultValue={0}
+        step={0.01}
+        min={0}
         helperText={false}
         validate={required()}
       />
