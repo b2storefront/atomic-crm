@@ -80,6 +80,8 @@ export const NumberInput = (props: NumberInputProps) => {
     }
   }, [field.value]);
 
+  const useTextInput = !!format;
+
   return (
     <FormField id={id} className={className} name={field.name}>
       {label !== false && (
@@ -96,7 +98,8 @@ export const NumberInput = (props: NumberInputProps) => {
         <Input
           {...rest}
           {...field}
-          type="number"
+          type={useTextInput ? "text" : "number"}
+          inputMode={useTextInput ? "decimal" : undefined}
           value={value}
           onChange={handleChange}
           onFocus={handleFocus}
@@ -122,7 +125,8 @@ const convertStringToNumber = (value?: string | null) => {
   if (value == null || value === "") {
     return null;
   }
-  const float = parseFloat(value);
+  const normalized = String(value).replace(",", ".");
+  const float = parseFloat(normalized);
 
   return isNaN(float) ? 0 : float;
 };
