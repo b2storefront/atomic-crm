@@ -7,7 +7,6 @@ import {
   type Exporter,
 } from "ra-core";
 import { BulkActionsToolbar } from "@/components/admin/bulk-actions-toolbar";
-import { CreateButton } from "@/components/admin/create-button";
 import { ExportButton } from "@/components/admin/export-button";
 import { List } from "@/components/admin/list";
 import { SortButton } from "@/components/admin/sort-button";
@@ -15,7 +14,6 @@ import { Card } from "@/components/ui/card";
 
 import type { Company, Contact, Sale, Tag } from "../types";
 import { ContactEmpty } from "./ContactEmpty";
-import { ContactImportButton } from "./ContactImportButton";
 import {
   ContactListContent,
   ContactListContentMobile,
@@ -72,9 +70,7 @@ const ContactListLayoutDesktop = () => {
 const ContactListActions = () => (
   <TopToolbar>
     <SortButton fields={["first_name", "last_name", "last_seen"]} />
-    <ContactImportButton />
     <ExportButton exporter={exporter} />
-    <CreateButton />
   </TopToolbar>
 );
 

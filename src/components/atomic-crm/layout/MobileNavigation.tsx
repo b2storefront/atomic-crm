@@ -121,6 +121,7 @@ const NavigationButton = ({
 
 const CreateButton = () => {
   const contact_id = useMatch("/contacts/:id/*")?.params.id;
+  const isContactsListScreen = useMatch({ path: "/contacts", end: true });
   const [contactCreateOpen, setContactCreateOpen] = useState(false);
   const [noteCreateOpen, setNoteCreateOpen] = useState(false);
   const [taskCreateOpen, setTaskCreateOpen] = useState(false);
@@ -153,14 +154,16 @@ const CreateButton = () => {
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent>
-          <DropdownMenuItem
-            className="h-12 px-4 text-base"
-            onSelect={() => {
-              setContactCreateOpen(true);
-            }}
-          >
-            Unit Proposed
-          </DropdownMenuItem>
+          {!isContactsListScreen && (
+            <DropdownMenuItem
+              className="h-12 px-4 text-base"
+              onSelect={() => {
+                setContactCreateOpen(true);
+              }}
+            >
+              Unit Proposed
+            </DropdownMenuItem>
+          )}
           <DropdownMenuItem
             className="h-12 px-4 text-base"
             onSelect={() => {
